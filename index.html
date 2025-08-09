@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victor Pabón | VAPNET - Tecnólogo en Telecomunicaciones</title>
+    <link rel="icon" href="./assets/images/marca.png" type="image/png">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/animations.css">
+    <link rel="stylesheet" href="./css/components/header.css">
+    <link rel="stylesheet" href="./css/components/hero.css">
+    <link rel="stylesheet" href="./css/components/projects.css">
+    <link rel="stylesheet" href="./css/components/skills.css">
+    <link rel="stylesheet" href="./css/components/footer.css">
+    <link rel="stylesheet" href="./css/components/vapnet-logo.css">
+</head>
+<body>
+    <!-- Cursor personalizado -->
+    <div class="cursor"></div>
+    
+    <!-- Fondo animado -->
+    <div id="particles-js"></div>
+
+    <!-- Overlay animación logo -->
+<!-- <div class="vapnet-logo-overlay hidden">
+    <div class="vap">VAP</div>
+    <div class="net">
+        <span class="t">T</span>
+    </div>
+    <div class="squares">
+        <div class="sq" style="--delay: 0s;"></div>
+        <div class="sq" style="--delay: 0.1s;"></div>
+        <div class="sq" style="--delay: 0.2s;"></div>
+    </div>
+    <div id="tagline" class="tagline"></div>
+</div> -->
+
+    <!-- Logo VAPNET animado (solo visible al inicio) -->
+    <div class="vapnet-logo-overlay">
+        <div class="vapnet-logo-container">
+            <div class="logo-text" role="img" aria-hidden="false">
+                <span class="vap">VAP</span>
+                <span class="net">
+                    <span class="n">N</span>
+                    <span class="e">E</span>
+                    <span class="t">T
+                        <span class="squares" aria-hidden="true">
+                            <span class="sq top" style="--delay:1.2s"></span>
+                            <span class="row">
+                                <span class="sq left" style="--delay:1.45s"></span>
+                                <span class="sq right" style="--delay:1.7s"></span>
+                            </span>
+                        </span>
+                    </span>
+                </span>
+            </div>
+            <div id="tagline" class="tagline" aria-live="polite"></div>
+        </div>
+    </div> -
+    
+    <!-- Componentes -->
+    <div data-include="./components/header.html"></div>
+    <div data-include="./components/hero.html"></div>
+    <div data-include="./components/projects.html"></div>
+    <div data-include="./components/skills.html"></div>
+    <div data-include="./components/footer.html"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/particles-config.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/components/navbar.js"></script>
+    <script src="./js/components/charts.js"></script>
+    <script src="./js/vapnet-logo.js"></script>
+</body>
+</html>

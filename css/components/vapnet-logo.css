@@ -1,0 +1,131 @@
+/* Contenedor principal del logo */
+.vapnet-logo-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0);
+    /* opacity: 1; */
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+/* Estado inicial de los elementos */
+.vapnet-logo-container {
+    text-align: center;
+    transform: translateY(-10%);
+}
+
+.logo-text {
+    font-weight: 700;
+    font-size: clamp(36px, 7.5vw, 84px);
+    color: white;
+    display: inline-flex;
+    gap: 0.2ch;
+    align-items: flex-end;
+}
+
+/* Animaciones mejoradas con ciclos completos */
+.vap {
+    color: white;
+    animation: 
+        vapEntrance 0.7s cubic-bezier(.2,.9,.2,1) forwards,
+        vapExit 0.7s cubic-bezier(.2,.9,.2,1) 4.5s forwards;
+}
+
+.net .t {
+    color: #ff3b3b;
+    animation: 
+        tEntrance 0.7s cubic-bezier(.2,.9,.2,1) 0.8s forwards,
+        tExit 0.7s cubic-bezier(.2,.9,.2,1) 5.3s forwards;
+}
+
+.squares {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -23px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sq {
+    width: 14px;
+    height: 14px;
+    background: white;
+    border-radius: 2px;
+    animation: 
+        squareEntrance 0.42s cubic-bezier(.2,.9,.2,1) var(--delay) forwards,
+        squareExit 0.42s cubic-bezier(.2,.9,.2,1) calc(var(--delay) + 4.3s) forwards,
+        squareBlink 1.6s ease-in-out calc(var(--delay) + 0.35s) infinite;
+}
+
+/* Definición de keyframes mejoradas */
+@keyframes vapEntrance {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes vapExit {
+    to { opacity: 0; transform: translateX(-30px); }
+}
+
+@keyframes tEntrance {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes tExit {
+    to { opacity: 0; transform: translateY(30px); }
+}
+
+@keyframes squareEntrance {
+    from { opacity: 0; transform: translateY(6px) scale(.85); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes squareExit {
+    to { opacity: 0; transform: translateY(6px) scale(.85); }
+}
+
+@keyframes squareBlink {
+    0%, 100% { opacity: 0.22; }
+    50% { opacity: 1; transform: translateY(-1px); }
+}
+
+/* Tagline con animación mejorada */
+.tagline {
+    color: white;
+    font-size: clamp(12px, 1.2vw, 18px);
+    margin-top: 14px;
+    letter-spacing: 1.6px;
+    animation: 
+        taglineFadeIn 0.5s ease-out 2.5s forwards,
+        taglineFadeOut 0.5s ease-out 6s forwards;
+}
+
+@keyframes taglineFadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes taglineFadeOut {
+    to { opacity: 0; }
+}
+
+/* Estado final */
+.vapnet-logo-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .squares { top: -20px; }
+    .sq { width: 12px; height: 12px; }
+}
