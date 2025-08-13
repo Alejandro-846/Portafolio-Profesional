@@ -1,3 +1,13 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("construction-modal");
+    const closeBtn = document.getElementById("close-modal");
+
+    closeBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+});
+
+
 document.addEventListener('DOMContentLoaded', function() {
     // Cargar componentes
     const includes = document.querySelectorAll('[data-include]');
