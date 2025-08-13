@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
         particlesJS('particles-js', {
             "particles": {
                 "number": {
-                    "value": 60,  // Reducido para mejor visibilidad del logo
+                    "value": 30,  // Reducido para mejor visibilidad del logo
                     "density": {
                         "enable": true,
                         "value_area": 500  // Más dispersas

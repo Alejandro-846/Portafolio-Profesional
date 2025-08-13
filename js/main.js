@@ -34,14 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Permite el scroll solo después de que la animación del logo termine
-    const checkLogoAnimation = setInterval(() => {
-        if (document.querySelector('.vapnet-logo-overlay.hidden')) {
-            document.body.style.overflow = 'auto';
-            clearInterval(checkLogoAnimation);
-        }
-    }, 100);
-
+   
     
 
 

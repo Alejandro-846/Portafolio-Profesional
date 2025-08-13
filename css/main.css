@@ -24,6 +24,38 @@ body {
     line-height: 1.6;
 }
 
+/* body > *:not(#particles-js) {
+    position: relative;
+    z-index: 1;
+}
+
+/* Contenedor del fondo con imagen + partículas */
+body::before {
+    content: "";
+    position: fixed;
+    top: 5%;
+    right: -25%;
+    width: 700%; /* Mitad derecha */
+    height: 100%;
+    background: url('../assets/images/torres.png') no-repeat center right;
+    background-size: contain; /* Mantiene proporción */
+    filter:  brightness(0.05) contrast(1);
+    z-index: -2; /* Más al fondo que las partículas */
+    pointer-events: none;
+}
+
+/* Partículas encima de la imagen */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Encima de la imagen, debajo del contenido */
+    pointer-events: none;
+} */
+
+
 h1, h2, h3, h4 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -67,6 +99,16 @@ a, button, .project-card {
     z-index: 10;
     text-align: center;
     pointer-events: none;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Envía las partículas al fondo */
+    pointer-events: none; /* Evita que bloquee clics */
 }
 
 .logo-text {
