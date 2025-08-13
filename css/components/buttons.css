@@ -1,0 +1,169 @@
+/* Fuente personalizada */
+@font-face {
+  font-family: 'MiFuente';
+  src: url('../../assets/fonts/MiFuente-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'MiFuente';
+  src: url('../../assets/fonts/MiFuente-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+/* Estilos base para botones y enlaces del header */
+.header .nav-link,
+.header .btn {
+  position: relative;
+  display: inline-block;
+  padding: 0.7em calc(0.7em * 1.2);
+  font-size: 1.1em;
+  letter-spacing: 0.07em;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  border: 3px solid transparent;
+  background: transparent;
+  font-family: 'MiFuente', sans-serif; /* Tu fuente */
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  border-radius: 999px
+}
+
+/* Texto dentro del botón */
+.header .nav-link .text,
+.header .btn .text {
+  display: inline-block;
+  transform: translate3d(0, 0.7em, 0);
+  transition: transform 0.4s cubic-bezier(.2, 0, 0, 1) 0.4s;
+}
+
+/* Línea inferior inicial */
+.header .nav-link:after,
+.header .btn:after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: calc(0.7em * 1.2);
+  right: calc(0.7em * 1.2);
+  height: 3px;
+  background: var(--primary); /* Morado neón */
+  box-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary), 0 0 20px var(--primary);
+  transform-origin: left;
+  transition:
+    transform 0.8s cubic-bezier(1, 0, .37, 1) 0.2s,
+    right 0.2s cubic-bezier(.04, .48, 0, 1) 0.6s,
+    left 0.4s cubic-bezier(.04, .48, 0, 1) 0.6s;
+}
+
+/* Bordes animados */
+.header .nav-link .line,
+.header .btn .line {
+  position: absolute;
+  background: var(--primary);
+  box-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary), 0 0 20px var(--primary);
+    border-radius: 8px;
+
+}
+
+.header .nav-link .line.-right,
+.header .nav-link .line.-left,
+.header .btn .line.-right,
+.header .btn .line.-left {
+  width: 3px;
+  top: -3px;
+  bottom: -3px;
+  transform: scale3d(1, 0, 1);
+}
+
+.header .nav-link .line.-top,
+.header .nav-link .line.-bottom,
+.header .btn .line.-top,
+.header .btn .line.-bottom {
+  height: 3px;
+  left: -3px;
+  right: -3px;
+  transform: scale3d(0, 1, 1);
+}
+
+/* Posiciones iniciales */
+.header .nav-link .line.-right,
+.header .btn .line.-right {
+  right: -3px;
+  transform-origin: top;
+  transition: transform 0.1s cubic-bezier(1, 0, .65, 1.01) 0.23s;
+}
+
+.header .nav-link .line.-top,
+.header .btn .line.-top {
+  top: -3px;
+  transform-origin: left;
+  transition: transform 0.08s linear 0.43s;
+}
+
+.header .nav-link .line.-left,
+.header .btn .line.-left {
+  left: -3px;
+  transform-origin: bottom;
+  transition: transform 0.08s linear 0.51s;
+}
+
+.header .nav-link .line.-bottom,
+.header .btn .line.-bottom {
+  bottom: -3px;
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(1, 0, .65, 1.01);
+}
+
+/* Hover con efecto neón */
+.header .nav-link:hover,
+.header .btn:hover {
+  color: white;
+  text-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary), 0 0 20px var(--primary);
+}
+
+.header .nav-link:hover .text,
+.header .btn:hover .text {
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.6s cubic-bezier(.2, 0, 0, 1) 0.4s;
+}
+
+.header .nav-link:hover:after,
+.header .btn:hover:after {
+  transform: scale3d(0, 1, 1);
+  left: -3px;
+  right: -3px;
+  transform-origin: right;
+  transition:
+    transform 0.2s cubic-bezier(1, 0, .65, 1.01) 0.17s,
+    right 0.2s cubic-bezier(1, 0, .65, 1.01),
+    left 0s 0.3s;
+}
+
+.header .nav-link:hover .line,
+.header .btn:hover .line {
+  transform: scale3d(1, 1, 1);
+}
+
+.header .nav-link:hover .line.-right,
+.header .btn:hover .line.-right {
+  transform-origin: bottom;
+  transition: transform 0.1s cubic-bezier(1, 0, .65, 1.01) 0.2s;
+}
+
+.header .nav-link:hover .line.-top,
+.header .btn:hover .line.-top {
+  transform-origin: right;
+  transition: transform 0.08s linear 0.4s;
+}
+
+.header .nav-link:hover .line.-left,
+.header .btn:hover .line.-left {
+  transform-origin: top;
+  transition: transform 0.08s linear 0.48s;
+}
+
+.header .nav-link:hover .line.-bottom,
+.header .btn:hover .line.-bottom {
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0, .53, .29, 1) 0.56s;
+}
