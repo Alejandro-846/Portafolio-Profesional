@@ -1,3 +1,5 @@
+// main.js
+
 document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("construction-modal");
     const closeBtn = document.getElementById("close-modal");
@@ -8,44 +10,69 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Cargar componentes
-    const includes = document.querySelectorAll('[data-include]');
-    includes.forEach(include => {
-        const filePath = include.getAttribute('data-include');
-        fetch(filePath)
-            .then(response => response.text())
-            .then(data => {
-                include.innerHTML = data;
-                // Cargar charts.js después de que skills.html se cargue
-                if (filePath.includes('skills.html')) {
-                    const script = document.createElement('script');
-                    script.src = './js/components/charts.js';
-                    document.body.appendChild(script);
-                }
-            });
-    });
 
-    // Cursor personalizado
-    const cursor = document.querySelector('.cursor');
-    if (cursor) {
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
+// ===============================
+// Función para cargar componentes
+// ===============================
+async function loadComponents() {
+    const includeElements = document.querySelectorAll('[data-include]');
+    for (const el of includeElements) {
+        const file = el.getAttribute('data-include');
+        try {
+            const response = await fetch(file);
+            if (!response.ok) throw new Error(`No se pudo cargar ${file}`);
+            const content = await response.text();
+            el.innerHTML = content;
+        } catch (error) {
+            console.error(error);
+            el.innerHTML = `<p style="color:red;">Error cargando ${file}</p>`;
+        }
+    }
+}
 
-        document.querySelectorAll('a, button').forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursor.classList.add('cursor-hover');
-            });
-            el.addEventListener('mouseleave', () => {
-                cursor.classList.remove('cursor-hover');
-            });
-        });
+// =======================================
+// Función para escribir letra por letra
+// =======================================
+function typeHeroName() {
+    const nameElement = document.getElementById("typed-name");
+    if (!nameElement) return;
+
+    const fullName = nameElement.textContent.trim();
+    nameElement.textContent = "";
+    let index = 0;
+
+    function typeLetter() {
+        if (index < fullName.length) {
+            nameElement.textContent += fullName[index];
+            index++;
+            setTimeout(typeLetter, 350); // velocidad de escritura
+        }
     }
 
-   
-    
+    typeLetter();
+}
 
 
+// ===============================
+// Cursor personalizado
+// ===============================
+function initCursor() {
+    const cursor = document.querySelector('.cursor');
+    if (!cursor) return;
+
+    document.addEventListener('mousemove', e => {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+    });
+}
+
+// ===============================
+// Inicialización
+// ===============================
+document.addEventListener('DOMContentLoaded', async () => {
+    setTimeout(async () => {
+        await loadComponents();
+        typeHeroName();
+        initCursor();
+    }, 1000); // Espera 2 segundos antes de iniciar
 });
